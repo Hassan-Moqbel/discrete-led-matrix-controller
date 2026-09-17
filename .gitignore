@@ -1,0 +1,14 @@
+# Ignore video binaries
+media/videos/*.mp4
+*.mp4
+*.avi
+*.mkv
+
+# Ignore archives & temp
+*.zip
+_temp_extract/
+
+# Ignore OS artifacts
+Thumbs.db
+ehthumbs.db
+.DS_Store
