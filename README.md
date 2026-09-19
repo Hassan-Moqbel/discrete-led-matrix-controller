@@ -55,7 +55,7 @@ $$
 f_{\text{clk}} \ge N \times f_{\text{frame}}
 $$
 
-*(Example: For an 8-row matrix, the NE555 clock must be tuned to at least $f_{\text{clk}} \ge 400\text{ Hz}$).*
+**Example:** For an 8-row matrix, the NE555 clock must be tuned to at least $f_{\text{clk}} \ge 400\text{ Hz}$.
 
 ### 3. Current-Limiting Resistor & Peak Dynamic Current
 
