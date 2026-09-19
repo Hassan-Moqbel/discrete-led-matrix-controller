@@ -25,7 +25,7 @@ Modern displays and visual electronics rely almost entirely on embedded microcon
 ```mermaid
 flowchart LR
     CLK["NE555 Astable Clock Generator"] -->|Square Wave f_clk| CNT["CD4017 Decade Counter / Sequencer"]
-    CNT -->|Row Sequencing (Q0-Q9)| SW["Transistor Row Switch Array NPN/PNP"]
+    CNT -->|"Row Sequencing (Q0-Q9)"| SW["Transistor Row Switch Array NPN/PNP"]
     SW -->|V_CC Bus| MAT["LED Grid Matrix Display"]
     MAT -->|I_F Return| RES["Column Current-Limiting Resistor Network"]
     RES --> GND["Common Ground"]
