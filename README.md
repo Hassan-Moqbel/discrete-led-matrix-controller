@@ -34,21 +34,38 @@ flowchart LR
 ## Theoretical & Mathematical Models
 
 ### 1. NE555 Astable Clock Frequency & Duty Cycle
-The clock frequency ($f_{clk}$) driving the sequence is governed by the timing resistors ($R_1$,$R_2$) and the timing capacitor ($C$):
-$$f_{clk} = \frac{1.44}{(R_1 + 2R_2)C}$$
-The pulse widths and Duty Cycle ($D$) are:
-$$T_{high} = 0.693(R_1 + R_2)C, \quad T_{low} = 0.693 R_2 C$$
-$$D = \frac{R_1 + R_2}{R_1 + 2R_2}$$
+
+The clock frequency ($f_{\text{clk}}$) driving the sequence is governed by the timing resistors ($R_1, R_2$) and the timing capacitor ($C$):
+
+$$
+f_{\text{clk}} = \frac{1.44}{(R_1 + 2R_2)C}
+$$
+
+The pulse widths and Duty Cycle ($D$) evaluate to:
+
+$$
+T_{\text{high}} = 0.693(R_1 + R_2)C, \quad T_{\text{low}} = 0.693 R_2 C, \quad D = \frac{R_1 + R_2}{R_1 + 2R_2}
+$$
 
 ### 2. Matrix Multiplexing & Persistence of Vision (POV)
-To eliminate perceived flicker to the human eye, the entire matrix frame must be refreshed at least 50 times per second ($f_{frame} \ge 50\text{Hz}$). For an$N$-row matrix:
-$$f_{clk} \ge N \times f_{frame}$$
-*(Example: For an 8-row matrix, the NE555 must be tuned to at least $400\text{Hz}$).*
+
+To eliminate perceived flicker to the human eye, the entire matrix frame must be refreshed at least 50 times per second ($f_{\text{frame}} \ge 50\text{ Hz}$). For an $N$-row matrix:
+
+$$
+f_{\text{clk}} \ge N \times f_{\text{frame}}
+$$
+
+*(Example: For an 8-row matrix, the NE555 clock must be tuned to at least $400\text{ Hz}$).*
 
 ### 3. Current-Limiting Resistor & Peak Dynamic Current
-Because each row is only illuminated for a fraction of the time ($1/N$), the instantaneous peak current ($I_{peak}$) sent through the LEDs can be higher than the continuous rating, but the protective resistor must be sized based on the voltage drops:
-$$R_{limit} = \frac{V_{CC} - V_F - V_{CE,sat}}{I_F}$$
-*(Where $V_F$is the LED forward voltage, and$V_{CE,sat}$ is the voltage drop across the row-switching transistor).*
+
+Because each row is only illuminated for a fraction of the time ($1 / N$), the instantaneous peak current ($I_{\text{peak}}$) sent through the LEDs can be higher than the continuous rating, but the protective resistor must be sized based on the voltage drops:
+
+$$
+R_{\text{limit}} = \frac{V_{CC} - V_F - V_{CE,\text{sat}}}{I_F}
+$$
+
+Where $V_F$ is the LED forward voltage, and $V_{CE,\text{sat}}$ is the voltage drop across the row-switching transistor.
 
 ## Hardware Bill of Materials (BOM)
 | Component Type | Function |
@@ -66,7 +83,7 @@ $$R_{limit} = \frac{V_{CC} - V_F - V_{CE,sat}}{I_F}$$
 3. **Matrix Hardwiring**: The desired visual pattern or "image" is fundamentally hard-coded by physically mapping the cathode connections of specific LEDs to the ground return columns.
 
 ## Authentic Media Catalog
-- **Engineering Report**: [`docs/Led Matrixحسن مقبل+موسى السلماني.pdf`](docs/)
+- **Engineering Report**: [`docs/Discrete_LED_Matrix_Engineering_Report.pdf`](docs/)
 - **Original Schematics & Physical Hardware**: Located in [`media/photos/`](media/photos/) as **[ORIGINAL HARDWARE & SCHEMATIC ARTIFACTS]**.
 - **Demonstration Video**: Available in [`media/videos/`](media/videos/) as **[ORIGINAL PROTOTYPE TEST VIDEO]**.
 
